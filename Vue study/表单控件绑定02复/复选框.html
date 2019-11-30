@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vue.js"></script>
+    <title>基础模板实现</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>表单复选框</h1>
+        <!-- v-model绑定了message变量 -->
+        <input type="checkbox" name="生化危机" id="生化危机" value="生化危机" v-model="message">
+        <label for="生化危机">生化危机</label>
+        <input type="checkbox" name="模拟飞行" id="模拟飞行" value="模拟飞行" v-model="message">
+        <label for="模拟飞行">模拟飞行</label>
+        <input type="checkbox" name="塞尔达传说" id="塞尔达传说" value="塞尔达传说" v-model="message">
+        <label for="塞尔达传说">塞尔达传说</label>
+        <p>Message is:{{message}}</p>
+    </div>
+</body>
+<script>var app = new Vue({
+        el: '#app',
+        data: {
+            message: []
+        },
+        methods:{
+
+        },
+    })
+</script>
+</html>

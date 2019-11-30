@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vue.js"></script>
+    <title>过滤器</title>
+</head>
+<body>
+    <div id="myApp">
+        <p>{{massage}}</p>
+        <p>{{massage | toupper}}</p>
+        <hr>
+        <p>现在的vue.js的学习进度是{{num}}({{num | topercentage}}).</p>
+    </div>
+</body>
+<script>
+    var maApp = new Vue({
+        el: '#myApp',
+        data: {
+            massage : 'heelo vue.js world',
+            num : 0.3,
+        },
+        // 定义过滤器方法，在body中直接引用即可 例如：{{massage | toupper}}
+        filters:{
+            toupper: function(value){
+                // 大写
+                return value.toUpperCase();
+            },
+            topercentage: function(value){
+                // 输出百分比
+                return value * 100 + '%';
+            }
+        }
+    })
+</script>
+</html>

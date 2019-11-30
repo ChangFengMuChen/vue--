@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vue.js"></script>
+    <title>基础模板实现</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <h1>js对象迭代</h1>
+            <div v-for="(value,key) in games">
+                {{key}} : {{value}}
+            </div>
+        </ul>
+    </div>
+</body>
+<script>var app = new Vue({
+        el: '#app',
+        data: {
+            games:{
+                title:"勇者斗恶龙",
+                price:350,
+                pubdata:'2017夏季',
+                category:"射击",
+                agerange:'全年龄',
+            }
+        }
+    })
+</script>
+</html>

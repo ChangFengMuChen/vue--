@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vue.js"></script>
+    <title>计算属性</title>
+</head>
+
+<body>
+    <div id="app">
+        价格{{price}}，含税价格：{{priceInTax}},人民币：{{priceChinaRMB}}元。
+    </div>
+</body>
+<script>var app = new Vue({
+        el: '#app',
+        data: {
+            price: 29980
+        },
+        computed:{
+            priceInTax: function(){
+                return this.price * 1.08;
+            },
+            priceChinaRMB:function(){
+                return Math.round(this.priceInTax /16.75);
+            }
+        }
+    })
+</script>
+</html>

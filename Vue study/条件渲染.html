@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vue.js"></script>
+    <title>基础模板实现</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-if="result == 0">成绩未公布</h1>
+        <h1 v-else-if="result < 60">{{result}}分，考试不及格</h1>
+        <h1 v-else-if="result < 80">{{result}}分，继续努力</h1>
+        <h1 v-else>{{result}}分,考得不错</h1>
+        <button @click="btnclick">考试成绩</button>
+    </div>
+</body>
+<script>var app = new Vue({
+        el: '#app',
+        data: {
+            result: 0,
+        },
+        methods: {
+            btnclick: function () {
+                this.result = Math.round(Math.random() * 100);
+            }
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vue.js"></script>
+    <title>计算属性</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>价格{{price}}，含税价格：{{priceInTax}},人民币：{{priceChinaRMB}}元。</p>
+        <button @click="btnclick(10000)">加价10000日元</button>
+    </div>
+</body>
+<script>var app = new Vue({
+        el: '#app',
+        data: {
+            price: 0,
+            priceInTax: 0,
+            priceChinaRMB: 0,
+        },     
+        // 发生变化时才会调用watch中的方法 
+        watch:{
+            // 里面的price要与data中的price名称一致，当price发生变化时则会出发该方法
+            price : function(newval,oldval){
+                console.log(newval,oldval);
+                this.priceInTax = Math.round(this.price * 1.08);
+                this.priceChinaRMB = Math.round(this.priceInTax / 16.75);
+            },
+        },
+        methods: {
+            btnclick: function(newPrice){
+                this.price += newPrice;
+            },
+        }
+    });
+    // 为了防止初始含税和人民币显示为0，初始化完之后再赋值，让其发生一次改变出发watch方法
+    app.price=29980;
+</script>
+</html>

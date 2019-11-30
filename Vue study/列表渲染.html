@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vue.js"></script>
+    <title>基础模板实现</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <!-- index指的是下标 -->
+            <li v-for="(game, index) in games">({{index}}) {{game.title}}/售价：{{game.price}}元</li>
+        </ul>
+    </div>
+</body>
+<script>var app = new Vue({
+        el: '#app',
+        data: {
+            games:[
+                {title:"勇者斗恶龙",price:500},
+                {title:"跑跑卡丁车",price:500},
+                {title:"马里奥世界",price:500},
+            ]
+        }
+    })
+</script>
+</html>

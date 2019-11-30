@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vue.js"></script>
+    <title>基础模板实现</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>表单控件绑定</h1>
+        <!-- v-model绑定了message变量 -->
+        <input type="text" v-model="message" placeholder="编辑"  name="" id="">
+        <p>Message is:{{message}}</p>
+    </div>
+</body>
+<script>var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!'
+        },
+        methods:{
+
+        },
+    })
+</script>
+</html>
